@@ -19,9 +19,9 @@
     <title>성민준</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="mjsung.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='mjsung.css') }}">
 
-    <script type="text/javascript" src="mjsung.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='mjsung.js') }}"></script>
 
 </head>
 
@@ -44,9 +44,43 @@
                     그 시간이라도 아껴서 쓰려면 돈이 충분해야 합니다.
                     이 글을 읽는 여러분도 부자가 되셨으면 좋겠습니다.
                 </p>
+
+
+                <div class="profile-comments-box">
+                    <div class="card">
+                        <div class="card-header">
+                            Comments
+                        </div>
+                        <div class="card-body" id="profile-comments">
+                            <div class="comment">
+                                <blockquote class="blockquote mb-0">
+                                <p>코멘트</p>
+                                <footer class="blockquote-footer">작성자</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="comment-write-box">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="코멘트" id="user-comment"></textarea>
+                                <label for="user-comment">코멘트</label>
+                            </div>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="닉네임" id="user-name"></textarea>
+                                <label for="user-name">닉네임</label>
+                            </div>
+                            <div class="comment-save-button-box">
+                                <button type="button" onclick="save_comment()" class="btn btn-dark">작성하기</button>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+
+
+
             </div>
             <div class="card" style="width: 18rem;">
-                <img src="profile-pic.jpg" class="card-img-top profile-pic" alt="...">
+                <img src="{{ url_for('static', filename='mjsungprofile.jpg') }}" class="card-img-top profile-pic" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Min Jun Sung</h5>
                     <p class="card-text">aka Louis XIV, MJ</p>

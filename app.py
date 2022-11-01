@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, url_for
 app = Flask(__name__)
 
 import pymongo
@@ -21,23 +21,21 @@ def home():
 # MJ SUNG
 #
 
-@app.route("/mjsung/postcomment", methods=["POST"])
+@app.route("/mjsungpostcomment", methods=["POST"])
 def mjsung_comment_post():
     name_receive = request.form['name_give']
     comment_receive = request.form['comment_give']
 
-    id = len(list(db.mjcomments.find({}, {'_id': False}))) + 1
     doc = {
-        "id": id,
         "name": name_receive,
         "comment": comment_receive
     }
 
-    db.fancomments.insert_one(doc)
+    db.mjcomments.insert_one(doc)
 
     return jsonify({'msg':'업로드 완료.'})
 
-@app.route("/mjsung/getcomment", methods=["GET"])
+@app.route("/mjsunggetcomment", methods=["GET"])
 def mjsung_comment_get():
 
     comments = list(db.mjcomments.find({}, {'_id': False}))
@@ -53,6 +51,10 @@ def mjsung_comment_get():
 #     deleted_comments += 1
 
 #     return jsonify({'msg':'삭제되었습니다.'})
+
+@app.route('/mjsung', methods=['GET', 'POST'])
+def mjsung():
+    return render_template('mjsung.html')
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
