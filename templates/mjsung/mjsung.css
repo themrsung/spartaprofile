@@ -28,3 +28,41 @@
 .page-title {
     font-size: 60px;
 }
+
+.wrap {
+    max-width: 1000px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    margin: 20px auto;
+}
+
+.profile-top {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    margin: 0px 0px 10px 0px;
+}
+
+.profile-top > div {
+    margin: 20px;
+}
+
+.profile-top-desc {
+    background-color: red;
+    width: 100%;
+    max-width: 650px;
+    margin: 0px auto auto auto;
+}
+
+.profile-pic {
+    border-radius: 100%;
+    padding: 15px;
+}
+
+.profile-middle {
+    margin: 10px auto;
+    background-color: red;
+}
