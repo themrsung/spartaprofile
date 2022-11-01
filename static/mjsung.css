@@ -102,11 +102,16 @@
 }
 
 .profile-lower {
-    margin: 10px auto;
+    margin: 10px auto 20px auto;
     padding: 10px 20px;
 }
 
 .comment {
     font-size: 12px;
     color: gray;
+}
+
+.profile-lower-img {
+    margin: 15px;
+    border-radius: 25%;
 }
