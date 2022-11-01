@@ -112,6 +112,40 @@
 }
 
 .profile-lower-img {
-    margin: 15px;
+    margin: 25px;
     border-radius: 25%;
+}
+
+.lower-desc {
+    margin: 30px auto;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lower-title {
+    background-color: black;
+    color: lightgray;
+    text-align: center;
+
+    width: 60%;
+    max-width: 750%;
+
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.lower-content {
+    width: 50%;
+    max-width: 600px;
+
+    background-color: white;
+
+    margin: 10px auto;
+    padding: 10px;
+
+    text-align: left;
 }
