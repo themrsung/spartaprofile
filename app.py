@@ -73,5 +73,9 @@ def mjsung_comment_get():
 def mjsung():
     return render_template('mjsung.html')
 
+@app.route('/dain', methods=['GET', 'POST'])
+def dain():
+    return render_template('pro.html')
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
