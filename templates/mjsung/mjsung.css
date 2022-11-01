@@ -51,7 +51,6 @@
 }
 
 .profile-top-desc {
-    background-color: red;
     width: 100%;
     max-width: 650px;
     margin: 0px auto auto auto;
@@ -64,5 +63,12 @@
 
 .profile-middle {
     margin: 10px auto;
+    padding: 10px 20px;
     background-color: red;
+}
+
+.profile-lower {
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: blue;
 }
