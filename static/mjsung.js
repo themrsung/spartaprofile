@@ -1,6 +1,6 @@
 $(document).ready(function () {
     show_comment();
-    
+    test()
 })
 
 function save_comment() {
@@ -48,3 +48,19 @@ function show_comment() {
         }
     });
 }
+
+// function test() {
+//     $.ajax({
+//         type: "GET",
+//         url: "/mjsungcommentdeletetest",
+//         data: {},
+//         success: function (response) {
+//             let comments = response['comments']
+//             console.log(typeof comments)
+//             for (let i = 0; i < comments.length; i++) {
+//                 let id = comments[i]['_id']
+//                 console.log(typeof id)
+//             }
+//         }
+//     });
+// }

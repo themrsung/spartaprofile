@@ -1,3 +1,4 @@
+import json
 from flask import Flask, render_template, request, jsonify, url_for
 app = Flask(__name__)
 
@@ -58,6 +59,13 @@ def mjsung_comment_get():
     comments = list(db.mjcomments.find({}, {'_id': False}))
 
     return jsonify({'comments': comments})
+
+# @app.route('/mjsungcommentdeletetest', methods=["GET"])
+# def mjsung_comment_delete_test():
+
+#     comments = list(db.mjcomments.find())
+
+#     return jsonify({'comments': comments})
 
 # @app.route("/homeworkdel", methods=["POST"])
 # def homework_delete():
