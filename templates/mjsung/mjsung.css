@@ -1,0 +1,30 @@
+* {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.title-bar {
+           
+    color: white;
+    
+    padding: 50px 0px;
+
+    height: 350px;
+    width: 100%;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("titlebar-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% calc(75%);
+    background-size: 100% auto;
+
+}
+
+.page-title {
+    font-size: 60px;
+}

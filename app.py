@@ -13,8 +13,6 @@ db = client.dbsparta
 #
 #
 
-deleted_comments = 0
-
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -24,12 +22,11 @@ def home():
 #
 
 @app.route("/mjsung/postcomment", methods=["POST"])
-def homework_post():
+def mjsung_comment_post():
     name_receive = request.form['name_give']
     comment_receive = request.form['comment_give']
 
-    id = len(list(db.fancomments.find({}, {'_id': False}))) + 1 + deleted_comments
-
+    id = len(list(db.mjcomments.find({}, {'_id': False}))) + 1
     doc = {
         "id": id,
         "name": name_receive,
@@ -41,9 +38,9 @@ def homework_post():
     return jsonify({'msg':'업로드 완료.'})
 
 @app.route("/mjsung/getcomment", methods=["GET"])
-def homework_get():
+def mjsung_comment_get():
 
-    comments = list(db.fancomments.find({}, {'_id': False}))
+    comments = list(db.mjcomments.find({}, {'_id': False}))
 
     return jsonify({'comments': comments})
 
