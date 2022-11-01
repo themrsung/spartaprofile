@@ -13,6 +13,20 @@ db = client.dbsparta
 #
 #
 
+#
+# HTML 링크 방법
+# 1. templates 폴더 내에 있는 경우
+# href="{{ url_for('블라블라') }}"
+# 
+# 쓰시고 이 파일 하단에
+# @app.route('/블라블라', methods=['GET', 'POST'])
+# def 블라블라():
+#     return render_template('파일명.html')
+#
+# 2. static 폴더 내에 있는 경우
+# href="{{ url_for('static', filename='파일명.확장자') }}"
+#
+
 @app.route('/')
 def home():
     return render_template('index.html')
