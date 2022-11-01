@@ -23,6 +23,9 @@ db = client.dbsparta
 # def 블라블라():
 #     return render_template('파일명.html')
 #
+# 파일을 직접 호줄하면 에러가 발생하여 이 파일에서 호출 함수를 써준 뒤, 그 함수를 html 파일에서 호출하는 방식입니다.
+# 이 코드 쓴 사람 누군지 참 궁금하네요ㅎㅎ
+#
 # 2. static 폴더 내에 있는 경우
 # href="{{ url_for('static', filename='파일명.확장자') }}"
 #
