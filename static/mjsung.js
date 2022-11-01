@@ -1,6 +1,5 @@
 $(document).ready(function () {
     show_comment();
-    test()
 })
 
 function save_comment() {
