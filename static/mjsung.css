@@ -82,6 +82,21 @@
     align-items: center;
 }
 
+.profile-reputation-box {
+    margin-top: 20px;
+}
+
+.current-reputation {
+    color: darkgoldenrod;
+}
+
+.user-reputation-button-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+}
+
 .profile-pic {
     border-radius: 100%;
     padding: 15px;

@@ -81,6 +81,40 @@ def mjsung_comment_get():
 def mjsung():
     return render_template('mjsung.html')
 
+@app.route('/mjcode', methods=['GET', 'POST'])
+def mjcode():
+    return render_template('mjsung/mjcode.html')
+
+@app.route('/mjsungpostrep', methods=['POST'])
+def mjsungpostrep():
+    rep_receive = request.form['rep_give']
+
+    doc = {
+        "rep": rep_receive
+    }
+
+    db.mjrep.insert_one(doc)
+
+    return jsonify({'msg':'업로드 완료.'})
+
+@app.route("/mjsunggetrep", methods=["GET"])
+def mjsunggetrep():
+
+    reps = list(db.mjrep.find({}, {'_id': False}))
+
+    total = 0
+
+    for r in reps:
+        total += int(r['rep'])
+    
+    if len(reps) > 0:
+        avg = total / len(reps)
+    else:
+        avg = 0
+
+
+    return jsonify({'reps': reps, 'avg': avg})
+
 @app.route('/dain', methods=['GET', 'POST'])
 def dain():
     return render_template('pro.html')

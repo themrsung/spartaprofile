@@ -1,5 +1,6 @@
 $(document).ready(function () {
     show_comment();
+    show_reputation();
 })
 
 function save_comment() {
@@ -44,6 +45,46 @@ function show_comment() {
 
                 $('#profile-comments').append(html_temp)
             }
+        }
+    });
+}
+
+function log_reputations() {
+    ($('#current-reputation')).val(1);
+    console.log($('#current-reputation').val());
+    console.log($('#user-reputation').val());
+}
+
+function save_reputation() {
+    rep = $('#user-reputation').val();
+
+    $.ajax({
+        type: "POST",
+        url: "/mjsungpostrep",
+        data: {
+            rep_give: rep
+        },
+        success: function (response) {
+            alert(response['msg'])
+            show_reputation()
+            $('#user-reputation').hide();
+            $('#user-reputation-button').hide();
+            $('#user-reputation-title').hide();
+        }
+    });
+}
+
+function show_reputation() {
+    $.ajax({
+        type: "GET",
+        url: "/mjsunggetrep",
+        data: {},
+        success: function (response) {
+            let rep = response['avg']
+
+            console.log(rep)
+
+            $('#current-reputation').val(rep);
         }
     });
 }
