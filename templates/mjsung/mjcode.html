@@ -24,6 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='mjsung.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='mjcode.css') }}">
 
     <script type="text/javascript" src="{{ url_for('static', filename='mjsung.js') }}"></script>
 
@@ -39,51 +40,105 @@
     <div class="wrap">
         <div class="profile-top">
             <div class="profile-top-desc">
-                <h2>여러분은 미래의 부자를 보고 계십니다.</h2>
+                <h2>여러분은 제 코드를 보고 계십니다.</h2>
                 <p>
-                    당신의 꿈은 무엇인가요?
-                    제 꿈은 언제나 '부자가 되는 것'이었습니다.
-                    무슨 일을 하는지, 어디에 사는지는 달라져도 이 꿈은 변하지 않을 겁니다.
-                    우리는 하고 싶은 것이 많지만, 그걸 할 수 있는 시간은 부족합니다.
-                    그 시간이라도 아껴서 쓰려면 돈이 충분해야 합니다.
-                    이 글을 읽는 여러분도 부자가 되셨으면 좋겠습니다.
+                    이 평판 슬라이더, 정말 멋있지 않나요?
+                    제 코드 중 가장 마음에 드는 부분입니다.
+                    어떻게 만들었는지 알려드릴게요!
                 </p>
 
-
-                <div class="profile-comments-box">
+                <div class="profile-reputation-box">
                     <div class="card">
                         <div class="card-header">
-                            Comments
+                            Reputation
                         </div>
-                        <div class="card-body" id="profile-comments">
-                            <div class="comment">
-                                <blockquote class="blockquote mb-0">
-                                <p>코멘트</p>
-                                <footer class="blockquote-footer">작성자</footer>
-                                </blockquote>
-                            </div>
+                        <div class="card-body">
+                            <label for="customRange1" class="form-label">현재 평판</label>
+                            <input type="range" min="0" max="1000" class="form-range current-reputation" id="current-reputation" disabled="disabled">
                         </div>
-                        <div class="comment-write-box">
-                            <div class="form-floating">
-                                <textarea class="form-control" placeholder="코멘트" id="user-comment"></textarea>
-                                <label for="user-comment">코멘트</label>
-                            </div>
-                            <div class="form-floating">
-                                <textarea class="form-control" placeholder="닉네임" id="user-name"></textarea>
-                                <label for="user-name">닉네임</label>
-                            </div>
-                            <div class="comment-save-button-box">
-                                <button type="button" onclick="save_comment()" class="btn btn-dark">작성하기</button>
-                            </div>
-                        </div> 
                     </div>
                 </div>
+
+                <p>
+                    먼저, 0부터 10까지 고를 수 있는 슬라이더를 만들었어요.
+                    그리고 mongodb와 연결해 데이터를 저장하고, 데이터를 불러올 때는 모든 값의 평균을 받아왔습니다.
+                </p>
+
+                <div class="card code-snippet">
+                    <div class="card-header">
+                      Front-end
+                    </div>
+                    <div class="card-body">
+                        <pre>function save_reputation() {
+    rep = $('#user-reputation').val();
+
+    $.ajax({
+        type: "POST",
+        url: "/mjsungpostrep",
+        data: {
+            rep_give: rep
+        },
+        success: function (response) {
+            show_reputation()
+            $('#user-reputation').hide();
+            $('#user-reputation-button').hide();
+            $('#user-reputation-title').hide();
+        }
+    });
+}
+
+function log_reputations() {
+    ($('#current-reputation')).val(1);
+    console.log($('#current-reputation').val());
+    console.log($('#user-reputation').val());
+}</pre>
+                    </div>
+                  </div>
+
+                  <div class="card code-snippet">
+                      <div class="card-header">
+                        Back-end
+                      </div>
+                      <div class="card-body">
+                        <pre>@app.route('/mjsungpostrep', methods=['POST'])
+def mjsungpostrep():
+    rep_receive = request.form['rep_give']
+
+    doc = {
+        "rep": rep_receive
+    }
+
+    db.mjrep.insert_one(doc)
+
+    return jsonify({'msg':'업로드 완료.'})
+
+@app.route("/mjsunggetrep", methods=["GET"])
+def mjsunggetrep():
+
+    reps = list(db.mjrep.find({}, {'_id': False}))
+
+    total = 0
+
+    for r in reps:
+        total += int(r['rep'])
+    
+    if len(reps) > 0:
+        avg = total / len(reps)
+    else:
+        avg = 0
+
+    avg100 = avg * 100
+
+
+    return jsonify({'reps': reps, 'avg': avg, 'avg100': avg100})</pre>
+                      </div>
+                    </div>
 
 
 
 
             </div>
-            <div class="card" style="width: 18rem;">
+            <div class="card profile-card" style="width: 18rem;">
                 <img src="{{ url_for('static', filename='mjsungprofile.jpg') }}" class="card-img-top profile-pic" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Min Jun Sung</h5>
