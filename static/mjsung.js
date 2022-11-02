@@ -65,7 +65,6 @@ function save_reputation() {
             rep_give: rep
         },
         success: function (response) {
-            alert(response['msg'])
             show_reputation()
             $('#user-reputation').hide();
             $('#user-reputation-button').hide();
