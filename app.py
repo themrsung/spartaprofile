@@ -141,6 +141,37 @@ def mjsunggetrep():
 
     return jsonify({'reps': reps, 'avg': avg})
 
+# leo -----------------------------------------------
+
+@app.route("/comment", methods=["POST"])
+def comment_post():
+    uuid_receive = request.form['uuid_give']
+    name_receive = request.form['name_give']
+    comment_receive = request.form['comment_give']
+
+    doc = {
+        "uuid": uuid_receive,
+        "name": name_receive,
+        "comment": comment_receive,
+    }
+
+    db.comment.insert_one(doc)
+    return jsonify({'msg': '작성 완료!'})
+
+@app.route("/comment", methods=["DELETE"])
+def comment_delete():
+    uuid_receive = request.form["uuid_give"]
+
+    db.comment.delete_one({"uuid": uuid_receive})
+    return jsonify({"msg": "삭제 완료!"})
+
+@app.route("/comment", methods=["GET"])
+def comment_get():
+    post_list = list(db.comment.find({}, {'_id':False}))
+    return jsonify({"post": post_list})
+
+# ---------------------------------------------------------
+
 @app.route('/dain', methods=['GET', 'POST'])
 def dain():
     return render_template('pro.html')
@@ -152,6 +183,10 @@ def leetaehyun():
 @app.route('/seongchange', methods=['GET', 'POST'])
 def seongchange():
     return render_template('seong-change.html')
+
+@app.route('/leo', methods=['GET', 'POST'])
+def leo():
+    return render_template('leo.html')
 
 
 if __name__ == '__main__':
