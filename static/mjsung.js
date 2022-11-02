@@ -80,7 +80,7 @@ function show_reputation() {
         url: "/mjsunggetrep",
         data: {},
         success: function (response) {
-            let rep = response['avg']
+            let rep = response['avg100']
 
             console.log(rep)
 

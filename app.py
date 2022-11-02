@@ -138,8 +138,10 @@ def mjsunggetrep():
     else:
         avg = 0
 
+    avg100 = avg * 100
 
-    return jsonify({'reps': reps, 'avg': avg})
+
+    return jsonify({'reps': reps, 'avg': avg, 'avg100': avg100})
 
 # leo -----------------------------------------------
 
