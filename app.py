@@ -77,6 +77,32 @@ def mjsung_comment_get():
 
 #     return jsonify({'msg':'삭제되었습니다.'})
 
+
+# seongkh
+
+
+@app.route("/homework", methods=["POST"])
+def homework_post():
+    name_receive = request.form['name_give']
+    comment_receive = request.form['comment_give']
+
+    doc = {
+        'name': name_receive,
+        'comment': comment_receive
+    }
+
+    db.homework.insert_one(doc)
+    return jsonify({'msg':'작성완료!'})
+
+@app.route("/homework", methods=["GET"])
+def homework_get():
+    comment_list = list(db.homework.find({},{'_id':False}))
+    return jsonify({'comments':comment_list})
+
+
+
+
+
 @app.route('/mjsung', methods=['GET', 'POST'])
 def mjsung():
     return render_template('mjsung.html')
@@ -123,5 +149,11 @@ def dain():
 def leetaehyun():
     return render_template('LeeTaeHyun.html')
 
+@app.route('/seongchange', methods=['GET', 'POST'])
+def seongchange():
+    return render_template('seong-change.html')
+
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
+
