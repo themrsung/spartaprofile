@@ -15,8 +15,8 @@ function save_comment() {
             comment_give: comment
         },
         success: function (response) {
-            alert(response['msg'])
-            window.location.reload()
+            show_comment()
+            $('#comment-box').hide();
         }
     })
 }
