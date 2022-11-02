@@ -43,6 +43,14 @@
             justify-content: center;
         }
 
+        .wrap {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0);
+
+            margin: 20px auto;
+        }
+
         .mypost {
             width: 95%;
             max-width: 500px;
@@ -124,36 +132,35 @@
             <h1>Lee Tae Hyun</h1>
             <p>현재기온: <span id="temp">36</span>도</p>
         </div>
-        <div class="wrap">
-            <h1>[자신]에 대한 설명 및 MBTI</h1>
-            <ol>
-                <li>이름:이태현</li>
-                <li>나이:26</li>
-                <li>취미:인터넷 방송보기(유튜브,아프리카,트위치)</li>
-                <li>MBTI : INTP</li>
-            </ol>
-            <h1>객관적으로 살펴본 자신의 장점</h1>
-            <ul>
-                <li>잘 웃는거 같다.</li>
-                <li>약간 My Way가 가능하다.</li>
-            </ul>
-            <h1>협업을 하는 과정에서의 자신의 스타일</h1>
-            <ul>
-                <li>최대한 따라 가고자한다.</li>
-            </ul>
-            <h1>코드 자랑</h1>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="name" placeholder="url">
-                <label for="name">이름</label>
-            </div>
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="comment"
-                    style="height: 100px"></textarea>
-                <label for="comment">하고싶은 말</label>
-            </div>
-            <button onclick="save_comment()" type="button" class="btn btn-dark">댓글 남기기</button>
-        </div>
     </div>
+    <div class="wrap">
+        <h1>[자신]에 대한 설명 및 MBTI</h1>
+        <ol>
+            <li>이름:이태현</li>
+            <li>나이:26</li>
+            <li>취미:인터넷 방송보기(유튜브,아프리카,트위치)</li>
+            <li>MBTI : INTP</li>
+        </ol>
+        <h1>객관적으로 살펴본 자신의 장점</h1>
+        <ul>
+            <li>잘 웃는거 같다.</li>
+            <li>약간 My Way가 가능하다.</li>
+        </ul>
+        <h1>협업을 하는 과정에서의 자신의 스타일</h1>
+        <ul>
+            <li>최대한 따라 가고자한다.</li>
+        </ul>
+        <h1>코드 자랑</h1>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="name" placeholder="url">
+            <label for="name">이름</label>
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="comment"
+                style="height: 100px"></textarea>
+            <label for="comment">하고싶은 말</label>
+        </div>
+        <button onclick="save_comment()" type="button" class="btn btn-dark">댓글 남기기</button>
     </div>
 </body>
 
