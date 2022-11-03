@@ -174,7 +174,7 @@ def comment_get():
 
 # Lth
 @app.route("/homework_lth", methods=["POST"])
-def homework_post():
+def lth_post():
     name_receive = request.form["name_give"]
     comment_receive = request.form["comment_give"]
 
@@ -187,8 +187,8 @@ def homework_post():
     return jsonify({'msg':'댓글 감사합니다!'})
 
 @app.route("/homework_lth", methods=["GET"])
-def homework_get():
-    comment_list = list(db.homework.find({},{'_id':False}))
+def lth_get():
+    comment_list = list(db.homeworklth.find({},{'_id':False}))
     return jsonify({'comments':comment_list})
 # Lth
 
