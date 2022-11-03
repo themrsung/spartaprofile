@@ -78,3 +78,20 @@
 .btn-group > a {
     text-decoration: none;
 }
+
+.footer {
+    height: 200px;
+
+    color: white;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("second.png");
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mik {
+    margin-top: 17px;
+}
