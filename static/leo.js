@@ -1,6 +1,5 @@
 $(document).ready(function () {
     show_comment()
-    useState()
 })
 
 function useState(initialValue) {
@@ -21,19 +20,6 @@ function save_comment() {
 
     $.ajax({
         type: "POST",
-        url: "/comment",
-        data: { uuid_give: uuid, name_give: name, comment_give: comment },
-        success: function (response) {
-            alert(response["msg"])
-            window.location.reload()
-        },
-    })
-}
-
-function update_comment(uuid, click) {
-    console.log(click)
-    $.ajax({
-        type: "UPDATE",
         url: "/comment",
         data: { uuid_give: uuid, name_give: name, comment_give: comment },
         success: function (response) {
@@ -74,9 +60,6 @@ function show_comment() {
                                                 <footer class="blockquote-footer">${name}</footer>
                                             </blockquote>
                                             <div class="card-button">
-                                            <button type="button" onclick="update_comment(${
-                                                (uuid, true)
-                                            })" class="btn btn-outline-primary">수정</button>
                                             <button type="button" onclick="delete_comment(${uuid})" class="btn btn-outline-primary">삭제</button>
                                             </div>
                                         </div>
@@ -85,4 +68,10 @@ function show_comment() {
             })
         },
     })
+}
+
+{
+    /* <input type="text" class="form-control" id="editCommit" />
+<input type="text" class="form-control" id="editName" />
+<button type="button" onclick="" class="btn btn-outline-primary">완료</button> */
 }
