@@ -1,9 +1,22 @@
 * {
-    font-family: 'Gowun Dodum', sans-serif;
+    font-family: "Gowun Dodum", sans-serif;
 }
 
 .nav-bar {
     margin-bottom: 0px;
+}
+
+.navbar-brand {
+    color: #ff7200;
+}
+
+.nav-item > a {
+    color: #ff7200;
+}
+
+.nav-item :active {
+    background-color: white;
+    color: #ff7200;
 }
 
 .wrap {

@@ -1,5 +1,6 @@
 $(document).ready(function () {
     show_comment()
+    useState()
 })
 
 function useState(initialValue) {
@@ -29,6 +30,19 @@ function save_comment() {
     })
 }
 
+function update_comment(uuid, click) {
+    console.log(click)
+    $.ajax({
+        type: "UPDATE",
+        url: "/comment",
+        data: { uuid_give: uuid, name_give: name, comment_give: comment },
+        success: function (response) {
+            alert(response["msg"])
+            window.location.reload()
+        },
+    })
+}
+
 function delete_comment(uuid) {
     $.ajax({
         type: "DELETE",
@@ -49,7 +63,6 @@ function show_comment() {
         success: function (response) {
             const rows = response["post"]
             rows.forEach((item) => {
-                console.log(item)
                 const uuid = item.uuid
                 const name = item.name
                 const comment = item.comment
@@ -61,7 +74,9 @@ function show_comment() {
                                                 <footer class="blockquote-footer">${name}</footer>
                                             </blockquote>
                                             <div class="card-button">
-                                            <button type="button" onclick="" class="btn btn-outline-primary">수정</button>
+                                            <button type="button" onclick="update_comment(${
+                                                (uuid, true)
+                                            })" class="btn btn-outline-primary">수정</button>
                                             <button type="button" onclick="delete_comment(${uuid})" class="btn btn-outline-primary">삭제</button>
                                             </div>
                                         </div>
