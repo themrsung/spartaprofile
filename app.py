@@ -183,7 +183,7 @@ def lth_post():
         'comment': comment_receive
     }
 
-    db.homework.insert_one(doc)
+    db.homeworklth.insert_one(doc)
     return jsonify({'msg':'댓글 감사합니다!'})
 
 @app.route("/homework_lth", methods=["GET"])
