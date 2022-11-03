@@ -172,7 +172,25 @@ def comment_get():
     post_list = list(db.comment.find({}, {'_id':False}))
     return jsonify({"post": post_list})
 
-# ---------------------------------------------------------
+# Lth
+@app.route("/homework_lth", methods=["POST"])
+def homework_post():
+    name_receive = request.form["name_give"]
+    comment_receive = request.form["comment_give"]
+
+    doc = {
+        'name': name_receive,
+        'comment': comment_receive
+    }
+
+    db.homework.insert_one(doc)
+    return jsonify({'msg':'댓글 감사합니다!'})
+
+@app.route("/homework_lth", methods=["GET"])
+def homework_get():
+    comment_list = list(db.homework.find({},{'_id':False}))
+    return jsonify({'comments':comment_list})
+# Lth
 
 @app.route('/dain', methods=['GET', 'POST'])
 def dain():
