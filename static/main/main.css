@@ -14,8 +14,11 @@
     color: #ff7200;
 }
 
-.nav-item :active {
-    background-color: white;
+.nav-item > a:hover {
+    color: #ff7200;
+}
+
+.nav-link.active {
     color: #ff7200;
 }
 
