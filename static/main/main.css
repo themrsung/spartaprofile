@@ -2,9 +2,19 @@
     font-family: 'Gowun Dodum', sans-serif;
 }
 
+.nav-bar {
+    margin-bottom: 0px;
+}
+
+.wrap {
+    height: calc(100vh - 56px);
+    overflow-y: scroll;
+
+    padding: 0px;
+}
+
 .landing-screen {
     height: calc(100vh - 56px);
-
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("first.png");
     background-size: contain;
 }
@@ -12,6 +22,7 @@
 .contents {
     max-width: 1200px;
     width: 100vh;
+    margin: auto;
 }
 
 .contents-section {
