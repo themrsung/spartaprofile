@@ -19,7 +19,8 @@
 }
 
 .nav-link.active {
-    color: #ff7200;
+    color: white !important;
+    background-color: #ff7200 !important;
 }
 
 .wrap {
