@@ -17,6 +17,18 @@
     height: calc(100vh - 56px);
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("first.png");
     background-size: contain;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-screen-inner {
+    width: 90vh;
+    max-width: 1200px;
+
+    color: white;
 }
 
 .contents {
@@ -27,4 +39,5 @@
 
 .contents-section {
     margin: 15px auto;
+    border-width: 2px;
 }
