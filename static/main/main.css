@@ -62,11 +62,19 @@
 .btn-outline-primary {
     color: #ff7200 !important;
     border-color: #ff7200 !important;
+}
 
+.btn-outline-primary > a {
+    color: #ff7200 !important;
+    text-decoration: none;
 }
 
 .btn-outline-primary:hover {
     color: white !important;
     background-color: #ff7200 !important;
     border-color: #ff7200 !important;
+}
+
+.btn-group > a {
+    text-decoration: none;
 }
