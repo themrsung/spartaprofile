@@ -90,7 +90,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "/homework",
+                url: "/homework_lth",
                 data: { 'name_give': name, 'comment_give': comment },
                 success: function (response) {
                     window.location.reload()
@@ -102,7 +102,7 @@
             $('#comment-list').empty()
             $.ajax({
                 type: "GET",
-                url: "/homework",
+                url: "/homework_lth",
                 data: {},
                 success: function (response) {
                     let rows = response['comments']
