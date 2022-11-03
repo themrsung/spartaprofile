@@ -58,3 +58,15 @@
     margin: 15px auto;
     border-width: 2px;
 }
+
+.btn-outline-primary {
+    color: #ff7200 !important;
+    border-color: #ff7200 !important;
+
+}
+
+.btn-outline-primary:hover {
+    color: white !important;
+    background-color: #ff7200 !important;
+    border-color: #ff7200 !important;
+}

@@ -91,7 +91,6 @@
 
                 <div class="contents-section" id="crew">
                     <h1>crew - 멤버 소개</h1>
-                    <p>멤버 소개</p>
 
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         <div class="col">
@@ -167,13 +166,79 @@
 
                 <div class="contents-section" id="devlogs">
                     <h1>dev logs - 개발일지</h1>
-                    <p>개발일지</p>
-                    <p>갤러리 넣을 공간</p>
+
+                    <div class="devlogs-gallery">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                                    aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{ url_for('static', filename='placeholder-black.png') }}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{ url_for('static', filename='placeholder-black.png') }}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{{ url_for('static', filename='placeholder-black.png') }}" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="contents-section" id="links">
                     <h1>팀원들 블로그</h1>
-                    <p>성경환 https://velog.io/@seonghyun015b</p>
+
+                    <div class="blog-links">
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <a href="https://velog.io/@seonghyun015b">
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btnradio1">
+                                    성경환
+                                </label>
+                            </a>
+                            <a href="http://mjsung.com">
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btnradio1">
+                                    성민준
+                                </label>
+                            </a>
+                            <a href="https://vpvm96.tistory.com/">
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btnradio1">
+                                    이상원
+                                </label>
+                            </a>
+                            <a href="https://thl97.tistory.com/">
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btnradio1">
+                                    이태현
+                                </label>
+                            </a>
+                            <a href="https://blog.naver.com/olive_js_933">
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btnradio1">
+                                    정다인
+                                </label>
+                            </a>
+                          </div>
+                    </div>
                 </div>
             </div>
 
