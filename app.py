@@ -161,6 +161,15 @@ def comment_post():
     db.comment.insert_one(doc)
     return jsonify({'msg': '작성 완료!'})
 
+@app.route("/comment", methods=["PATCH"])
+def comment_update():
+    uuid_receive = request.form["uuid_give"]
+    name_receive = request.form["name_give"]
+    comment_receive = request.form["comment_give"]
+
+    db.comment.update_one({"uuid": uuid_receive}, {"$set":{"name": name_receive, "comment": comment_receive} })
+    return jsonify({"msg": "수정 완료!"})
+
 @app.route("/comment", methods=["DELETE"])
 def comment_delete():
     uuid_receive = request.form["uuid_give"]
