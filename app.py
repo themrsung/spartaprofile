@@ -179,8 +179,8 @@ def comment_delete():
 
 @app.route("/comment", methods=["GET"])
 def comment_get():
-    post_list = list(db.comment.find({}, {'_id':False}))
-    print(post_list)
+    post_list = list(db.comment.find({}, {'_id': False}))
+
     return jsonify({"post": post_list})
 
 # Lth
